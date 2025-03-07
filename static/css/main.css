@@ -1,0 +1,28 @@
+body {
+  background-color: #f0f8ff;
+  color: #333;
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2 {
+  color: #1e90ff;
+}
+
+.btn {
+  width: 20%;
+  display: block;
+  margin: auto;
+}
+
+.btn-primary {
+  background-color: #1e90ff;
+  border-color: #1e90ff;
+}
+
+.btn-primary:hover {
+  background-color: #1c86ee;
+  border-color: #1c86ee;
+}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about_as.css' %}">
+{% endblock %}
+
+{% block title %}運営元情報{% endblock %}
+
+{% block content %}
+<div class="about_us">
+  <section class="background_of_launch">
+    <h2 class="mb-3"><em>本サービスを立ち上げた経緯と想い</em></h2>
+    <p>{% include 'company/aboutus.txt' %}</p>
+  </section>
+
+  <section class="my_profile">
+    <h2 class="mb-3"><em>運営者の自己紹介</em></h2>
+    <ul class="row g-0 gy-2 row-cols-1 ls-0">
+      <li class="col">
+      </li>
+      <li class="col">
+      </li>
+      <li class="col">
+      </li>
+    </ul>
+    <h4 class="mb-3">転職遍歴</h4>
+    <ul class="row g-0 gy-2 row-cols-1 ls-0">
+      <li class="col">
+      </li>
+    </ul>
+  </section>
+</div>
+
+{% endblock %}

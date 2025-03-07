@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock %}
+
+{% block title %}面接原稿作成&更新{% endblock %}
+
+{% block content %}
+<div class="d-grid">
+  <a href="{% url 'question_top' %}" class="btn btn-secondary mb-5">戻る</a>
+</div>
+<div class="card shadow">
+  <div class="card-header text-center">
+    <h2 class="mb-0">面接原稿作成&更新</h2>
+  </div>
+
+  <div class="card-body">
+    <h5 class="mb-5">{{ content }}</h5>
+
+    <form id="answer_form" method="post">
+      {% csrf_token %}
+      {% for field in form %}
+      <div class="form-group mb-4">
+        <label for="{{field.id_for_label}}" class="form-label">{{ field.label }}</label>
+        {{ field }}
+        <div id="client_error_{{field.name}}" class="error-message mb-1"></div>
+        {% for error in field.errors %}
+        <div id="server_error_{{field.name}}_{{forloop.counter}}" class="server-error-message mb-1">{{ error }}</div>
+        {% endfor %}
+        {% if field.help_text %}
+        <small class="form-text text-muted">{{ field.help_text }}</small>
+        {% endif %}
+      </div>
+      {% endfor %}
+      <div class="d-grid">
+        <button id="answer_button" class="btn btn-primary btn-block">登録</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_javascript %}
+<script type="module" src="{% static 'js/formValidations/answerFormValidation.js' %}"></script>
+{% endblock %}

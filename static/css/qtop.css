@@ -1,0 +1,27 @@
+.accordion-button {
+  background-color: #e6f2ff;
+  color: #1e90ff;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #fff;
+  background-color: #1e90ff;
+}
+
+.card {
+  border: 1px solid #1e90ff;
+}
+
+.card-title {
+  color: #1e90ff;
+}
+
+.card-footer .btn {
+  background-color: #1e90ff;
+  border-color: #1e90ff;
+}
+
+.card-footer .btn:hover {
+  background-color: #1c86ee;
+  border-color: #1c86ee;
+}

@@ -1,0 +1,7 @@
+#account_delete_link {
+  color: red !important;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}

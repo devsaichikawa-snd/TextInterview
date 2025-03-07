@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}TextInterview - 待合室{% endblock %}
+
+{% block content %}
+<h1>TextInterviewを始めましょう</h1>
+<p>あなたは待合室で呼ばれる瞬間を待っています。そろそろ合図がありそうです。準備はよろしいですか？</p>
+<a href="{% url 'textinterview_start' %}" class="btn btn-primary">
+  開始する
+</a>
+{% endblock %}

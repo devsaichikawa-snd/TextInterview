@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load question_extras %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/qtop.css' %}">
+{% endblock %}
+
+{% block title %}面接原稿作成 TOP{% endblock %}
+
+{% block content %}
+<h2>あなただけの面接原稿を作成しましょう！</h2>
+<a href="{% url 'preview_answer' %}" class="btn btn-info my-5">面接原稿プレビュー</a>
+
+<div class="accordion" id="question_accordion">
+  {% for category in categories %}
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#item_{{category.category_id}}" aria-expanded="true" aria-controls="item_{{category.category_id}}">
+        {{ category.category_name }}
+      </button>
+    </h2>
+    <div id="item_{{category.category_id}}" class="accordion-collapse collapse {% if category.category_id == 1 %}show{% endif %}" data-bs-parent="#question_accordion">
+      <div class="accordion-body">
+        {% with questions=questions_dict|question_dict_unpack:category.category_id %}
+        {% for question in questions %}
+        <div class="card text-center mb-2">
+          <div class="card-body">
+            {% autoescape off %}
+            <h5 class="card-title">{{ question.content|linebreaks }}</h5>
+            {% endautoescape %}
+          </div>
+          <div class="card-footer">
+            <a href="{% url 'upsert_answer' question.question_id question.content %}" class="btn btn-primary">作成する</a>
+          </div>
+        </div>
+        {% endfor %}
+        {% endwith %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

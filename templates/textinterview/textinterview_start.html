@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/textinterview.css' %}">
+{% endblock %}
+
+{% block title %}TextInterview - 面接会場{% endblock %}
+
+{% block content %}
+<div class="chat-container">
+  <div class="chat-header">
+    <h2>面接</h2>
+  </div>
+  <div class="chat-body" id="chat_body">
+    <!-- チャットメッセージがここに表示されます -->
+  </div>
+  <div class="chat-footer">
+    {{ form.interview_answer }}
+    <button id="send_button">送信</button>
+  </div>
+  <div id="client_error" class="error-message"></div>
+</div>
+{% endblock %}
+
+{% block extra_javascript %}
+<script type="module" src="{% static 'js/interviewActions/api.js' %}"></script>
+<script type="module" src="{% static 'js/interviewActions/textinterview.js' %}"></script>
+<script>
+  // チャットのアイコンを設定する
+  const receiverIconImageUrl = "{% static 'images/interviewer_chat_icon.png' %}";
+  const interviewerIconImageUrl = "{% static 'images/receiver_chat_icon.png' %}";
+  const nextUrl = "{% url 'textinterview_finish' %}";
+</script>
+{% endblock %}

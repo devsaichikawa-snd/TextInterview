@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/preview_answer.css' %}">
+{% endblock %}
+
+{% block title %}面接原稿プレビュー{% endblock %}
+
+{% block content %}
+<dev class="interview">
+  <h2>面接原稿プレビュー</h2>
+
+  <a href="{% url 'question_top' %}" class="btn btn-secondary my-5">戻る</a>
+
+  <div class="interview-content">
+    <h2>面接の原稿</h2>
+    <div class="interview-text">
+      {% for answer in answers %}
+      <div class="question">Q: {{ answer.content }}</div>
+      <div class="answer">A: {{ answer.answer }}</div>
+      <div>
+        <a href="{% url 'upsert_answer' answer.question_id answer.content %}" class="btn btn-info btn-sm">
+          回答修正
+        </a>
+      </div>
+      <hr>
+      <br>
+      {% endfor %}
+    </div>
+  </div>
+</dev>
+{% endblock %}

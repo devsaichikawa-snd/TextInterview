@@ -1,0 +1,12 @@
+.error-message {
+  color: red;
+}
+
+.server-error-message {
+  color: red;
+}
+
+.errorlist {
+  color: red;
+  list-style: none;
+}

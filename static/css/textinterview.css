@@ -1,0 +1,205 @@
+/* 面接ページ大枠のCSS */
+h2 {
+  color: #ffffff;
+}
+
+.chat-container {
+  height: 80vh;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  background-color: #1c86ee;
+  padding: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #e5ddd5;
+}
+
+.chat-footer {
+  display: flex;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.chat-footer button {
+  background-color: #1c86ee;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.chat-footer button:hover {
+  background-color: #1c86ee;
+}
+
+/* メッセージのCSS */
+.message-container {
+  margin: 30px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.message-container.sender {
+  justify-content: flex-end;
+}
+
+.message-container.receiver {
+  justify-content: flex-start;
+}
+
+.message {
+  max-width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  padding: 10px 15px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  margin: 0 !important;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+.message::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+}
+
+.message.sender {
+  background-color: #dcf8c6;
+}
+
+.message.sender::before {
+  right: -26px;
+  border-left: 22px solid #dcf8c6;
+}
+
+.message.receiver {
+  background-color: #ffffff;
+}
+
+.message.receiver::before {
+  left: -26px;
+  border-right: 22px solid #ffffff;
+}
+
+/* アイコンのCSS */
+.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.user-icon.sender {
+  margin-left: 25px;
+  order: 2 !important;
+}
+
+.user-icon.receiver {
+  margin-right: 25px;
+  order: -1;
+}
+
+/* エラーメッセージのCSS */
+.error-message {
+  color: red;
+}
+
+
+/* -------------------------------------------------------------------- */
+/*吹き出し*/
+.balloon_l,
+.balloon_r {
+  margin: 30px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /*縦位置を上揃え*/
+  /*   align-items: center; */
+  /*縦位置を真ん中揃え*/
+}
+
+.balloon_r {
+  justify-content: flex-end;
+}
+
+.balloon_r .faceicon {
+  margin-left: 25px;
+}
+
+.balloon_l .faceicon {
+  margin-right: 25px;
+}
+
+.balloon_r .faceicon {
+  order: 2 !important;
+}
+
+.says {
+  max-width: 500px;
+  /*最大幅は任意*/
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  padding: 17px 13px 15px 18px;
+  border-radius: 12px;
+  background: #99dddd;
+  /*色は任意*/
+  box-sizing: border-box;
+  margin: 0 !important;
+  line-height: 1.5;
+  /*   align-items: center; */
+}
+
+.says p {
+  margin: 8px 0 0 !important;
+}
+
+.says p:first-child {
+  margin-top: 0 !important;
+}
+
+.says:after {
+  content: "";
+  position: absolute;
+  border: 10px solid transparent;
+  /*   margin-top:-3px;  */
+}
+
+.balloon_l .says:after {
+  left: -26px;
+  border-right: 22px solid #99dddd;
+}
+
+.balloon_r .says:after {
+  right: -26px;
+  border-left: 22px solid #99dddd;
+}
+
+.faceicon img {
+  width: 80px;
+  /*任意のサイズ*/
+  height: auto;
+}

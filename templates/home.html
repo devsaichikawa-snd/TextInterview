@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block title %}HOME{% endblock %}
+
+{% block content %}
+<!-- ヒーローセクション -->
+<div class="hero-section">
+  <h1>TextInterviewを通して、あなたの転職活動をご支援させていただきます！</h1>
+</div>
+
+<!-- 機能紹介セクション -->
+<div class="container introduce-section">
+  <div class="row text-center">
+    <div class="col-md-4 introduce-image">
+      <img src="{% static 'images/create_answer.png' %}" class="img-fluid img-thumbnail mb-3" alt="Feature 1" onclick="openModal(`{% static 'images/create_answer.png' %}`)">
+      <h3>面接原稿作成機能</h3>
+      <p>面接で問われる質問集を提供しております。質問に対する回答を整理することが目的です！</p>
+    </div>
+    <div class="col-md-4 introduce-image">
+      <img src="{% static 'images/answer_preview.png' %}" class="img-fluid img-thumbnail mb-3" alt="Feature 2" onclick="openModal(`{% static 'images/answer_preview.png' %}`)">
+      <h3>作成済み面接原稿の閲覧</h3>
+      <p>作成した質問への回答を閲覧できます。</p>
+    </div>
+    <div class="col-md-4 introduce-image">
+      <img src="{% static 'images/textinterveiw_sample.png' %}" class="img-fluid img-thumbnail mb-3" alt="Feature 3" onclick="openModal(`{% static 'images/textinterveiw_sample.png' %}`)">
+      <h3>模擬面接機能※Textベース</h3>
+      <p>質問集を基にして模擬面接ができます！作成した回答を台本ナシでOutPutすることが目的です！</p>
+    </div>
+  </div>
+</div>
+
+<!-- 機能紹介画像拡大モーダル -->
+<div class="modal fade" id="introduceImageModal" tabindex="-1" aria-labelledby="introduceImageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <img id="modalImage" src="" class="img-fluid img-thumbnail" alt="拡大画像">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(imageSrc) {
+    document.getElementById('modalImage').src = imageSrc;
+    var introduceImageModal = new bootstrap.Modal(document.getElementById('introduceImageModal'));
+    introduceImageModal.show();
+  }
+</script>
+{% endblock %}

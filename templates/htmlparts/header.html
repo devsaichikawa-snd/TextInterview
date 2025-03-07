@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg bg-primary-subtle">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">TextInterview</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 justify-content-between w-50">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'textinterview_top' %}">模擬面接</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'question_top' %}">面接原稿作成</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            アカウント
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'modify_userinfo' %}">ユーザー情報の変更</a></li>
+            <li><a class="dropdown-item" href="{% url 'resetting_password' %}">パスワードの変更</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a id="account_delete_link" class="dropdown-item" href="{% url 'delete_user' %}">退会</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'inquiry' %}">問い合わせ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'aboutus_page' %}">運営元情報</a>
+        </li>
+        {% endif %}
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <span class="nav-link">ようこそ、{{ user.user_name }} さん!</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">ログアウト</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'aboutus_page' %}">運営者情報</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signup' %}">新規利用者登録</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">ログイン</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
